@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // Función para crear una nueva tarea en la columna "To Do".
     function addTask(title, description) {
         const task = document.createElement('div');
         task.className = 'task';
@@ -32,14 +33,17 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById('todo').appendChild(task);
     }
 
+    // Función que permite soltar un elemento en una columna.
     function allowDrop(ev) {
         ev.preventDefault();
     }
 
+    // Función para manejar el evento de arrastrar una tarea.
     function drag(ev) {
         ev.dataTransfer.setData('text', ev.target.id);
     }
 
+    // Función que maneja el evento de soltar una tarea en otra columna.
     function drop(ev) {
         ev.preventDefault();
         const data = ev.dataTransfer.getData('text');
